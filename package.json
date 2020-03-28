@@ -1,0 +1,22 @@
+{
+  "name": "konek-p3-ts",
+  "version": "0.0.1",
+  "description": "phaser3-with-ts",
+  "dependencies": {
+    "phaser": "^3.22.0"
+  },
+  "devDependencies": {
+    "expose-loader": "^0.7.5",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --mode development --watch true --devtool source-map",
+    "production": "./node_modules/.bin/webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "reopucino",
+  "license": "ISC"
+}
