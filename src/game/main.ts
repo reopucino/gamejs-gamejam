@@ -1,4 +1,6 @@
 import "phaser";
+import { LoaderScene } from "./scenes/loader-scene";
+import { PreloaderScene } from "./scenes/preloader-scene";
 import { MainScene } from "./scenes/main-scene";
 //import { PublicSettings } from "./settings/public-settings";
 import { SizeHandler} from "../plugin/size-handler";
@@ -9,7 +11,7 @@ const config: Phaser.Types.Core.GameConfig = {
   height: 960,
   type: Phaser.AUTO,
   parent: "game",
-  scene: MainScene,
+  scene: [PreloaderScene, LoaderScene, MainScene],
   scale:{
     autoCenter: Phaser.Scale.CENTER_BOTH,
     mode:Phaser.Scale.FIT

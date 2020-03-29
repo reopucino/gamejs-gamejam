@@ -5,7 +5,7 @@ export class MainScene extends Phaser.Scene {
         });
     }
     preload():void{
-        this.load.image("myimg","./assets/graphics/phaser.png");
+        
     }
     create():void{
         let img =this.add.sprite(0, 0, "myimg");
