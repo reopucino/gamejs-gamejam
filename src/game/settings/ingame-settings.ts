@@ -1,7 +1,7 @@
 export let ingamesettings = {
     size: {
-        width:540, 
-        height:960
+        width:800, 
+        height:600
     },
     orientation:{
         forcePortrait:true,
@@ -14,5 +14,5 @@ export let ingamesettings = {
         color: 'green'
     },
     fonts: ['avenir', 'roboto', 'lobster'],//Please register the font into main.css
-    storage: {name: 'cool-game', version: '0.1.1'}
+    storage: {name: 'phaser-game', version: '0.0.1'}
 }    
