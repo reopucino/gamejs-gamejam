@@ -1,4 +1,4 @@
-import {ingamesettings} from '../game/settings/ingame-settings';
+import {IngameSettings} from '../game/settings/ingame-settings';
 
 export class SizeHandler{
     public fnSize: object;
@@ -14,10 +14,10 @@ export class SizeHandler{
         let deviceMobile = !this.game.device.os.desktop;
         if(deviceMobile){
             this.orientationDiv = document.getElementById('orientation');
-            if(ingamesettings.orientation.forcePortrait || ingamesettings.orientation.forceLandscape){
-                if(ingamesettings.orientation.forcePortrait)
+            if(IngameSettings.orientation.forcePortrait || IngameSettings.orientation.forceLandscape){
+                if(IngameSettings.orientation.forcePortrait)
                     this.orientationDiv.style.backgroundImage = 'url("assets/graphics/orientation/portrait.png")';
-                if(ingamesettings.orientation.forceLandscape)
+                if(IngameSettings.orientation.forceLandscape)
                     this.orientationDiv.style.backgroundImage = 'url("assets/graphics/orientation/landscape.png")';
                 this.game.scale.on('orientationchange', this.checkOrientation, this);
             }
@@ -29,7 +29,7 @@ export class SizeHandler{
 
     checkOrientation(orientation:string):void{
         if(orientation === Phaser.Scale.PORTRAIT){
-            if(ingamesettings.orientation.forcePortrait){
+            if(IngameSettings.orientation.forcePortrait){
                 this.correctOrientation();
             }
             else{
@@ -37,7 +37,7 @@ export class SizeHandler{
             }
         }
         else if(orientation === Phaser.Scale.LANDSCAPE){
-            if(ingamesettings.orientation.forceLandscape){
+            if(IngameSettings.orientation.forceLandscape){
                 this.correctOrientation();
             }
             else{

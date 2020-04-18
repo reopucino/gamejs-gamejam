@@ -15,7 +15,7 @@ export class GameScene extends Phaser.Scene {
         
     }
     create():void{
-        let img =this.add.sprite(20, 20, "tempobj", 0);
+        //let img =this.add.sprite(20, 20, "tempobj", 0);
 
         let bodyPlayer = this.add.sprite(80,80, 'all', 'pbody');
 

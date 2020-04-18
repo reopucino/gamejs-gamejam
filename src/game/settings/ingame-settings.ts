@@ -1,4 +1,4 @@
-export let ingamesettings = {
+export let IngameSettings = {
     size: {
         width:800, 
         height:600

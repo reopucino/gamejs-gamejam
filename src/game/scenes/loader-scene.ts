@@ -28,6 +28,7 @@ export class LoaderScene extends Phaser.Scene {
             this.load.image(_string, 'graphics/game/image-stock-4.png');
         }
         this.load.image("myimg","graphics/phaser.png");
+        this.load.atlas("all", "graphics/game/all.png", "graphics/game/all.json");
     }
     prepareLoadingAssets(){
         this.fnPrepareProgressbar();
@@ -45,7 +46,7 @@ export class LoaderScene extends Phaser.Scene {
 
     completeLoad(){
         //console.log("complete");
-        this.scene.start('MainScene');
+        this.scene.start('GameScene');
     }
 
     fnPrepareProgressbar(){
