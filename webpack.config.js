@@ -19,7 +19,7 @@ module.exports = {
     alias: {
       phaser: phaser
     }
-  },
+  }
   /*
   watch:true,
   mode: "development",
