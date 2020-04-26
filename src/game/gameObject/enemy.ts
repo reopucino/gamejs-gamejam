@@ -1,6 +1,11 @@
 import { Player } from "./player";
 
 const MAXSPEED = 150;
+
+/***
+ * TODO :
+ * if have another time, please change dps to 1 hit but give more impact
+ */
 export class Enemy extends Phaser.GameObjects.Image{
     private player:Player;
     private health : number = 3;
