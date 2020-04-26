@@ -1,53 +1,42 @@
-/**
- * HELO HERE
-*/
+import {Player} from "../gameObject/player";
+import { Enemy } from "../gameObject/enemy";
+
 export class GameScene extends Phaser.Scene {
-    private leftKey:Phaser.Input.Keyboard.Key;
-    private rightKey:Phaser.Input.Keyboard.Key;
-    private upKey:Phaser.Input.Keyboard.Key;
-    private downKey:Phaser.Input.Keyboard.Key;
+    private player : Player;
+    private enemies : Array<Enemy>
     constructor(){
         super({
             key:"GameScene"
         });
+        this.enemies = new Array();
     }
     preload():void{
         
     }
     create():void{
+        //this.physics.world.setBounds(0,0, 640, 480);
         //let img =this.add.sprite(20, 20, "tempobj", 0);
+        //this.physics.world.enable(this);
+        //console.log(this.physics);
+        //this.physics.world.enable(this.bodyPlayer);
+        //this.bodyPlayer = this.physics.add.existing(bodyPlayer);
+        this.player = new Player({scene:this, x:80, y:80, key:"all", frame:"survivor1_gun"});
+        this.addNewEnemy(1);
+    }
 
-        let bodyPlayer = this.add.sprite(80,80, 'all', 'pbody');
-
-        this.leftKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        this.rightKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        this.upKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        this.downKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-        //next todo 
-        /*
-        control player
-        can shoot
-        can replay
-        */
-
-        //img.setDisplayOrigin(0,0);
-        //this.cameras.main.startFollow(img, true, 0.3, 0.3);
-        //this.cameras.main.setViewport(0,0, 360, 360);
-        //this.cameras.main.setZoom(2);
+    addNewEnemy(howmany:number):void{
+        for(let i=0; i<howmany; i++){
+            let randPos = {x:Math.random()*800, y:Math.random()*600};
+            let enemy = new Enemy({scene:this, x:randPos.x, y:randPos.y, key:"all", frame:"zoimbie1_hold", player:this.player});
+            this.enemies.push(enemy);
+        }
+        
     }
 
     update():void{
-        if(this.leftKey.isDown){
-            console.log("leftKeyDown");
-        }
-        if(this.downKey.isDown){
-            console.log("downKeyDown")
-        }
-        if(this.upKey.isDown){
-            console.log("upKeyDown")
-        }
-        if(this.rightKey.isDown){
-            console.log("rightKeyDown")
-        }
+       this.player.update();
+       this.enemies.forEach(enemy => {
+           enemy.update();
+       });
     }
 }

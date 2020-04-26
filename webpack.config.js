@@ -1,6 +1,6 @@
 var path = require("path");
 var pathToPhaser = path.join(__dirname, "/node_modules/phaser/");
-var phaser = path.join(pathToPhaser, "dist/phaser.js");
+var phaser = path.join(pathToPhaser, "dist/phaser.min.js");
 
 module.exports = {
   entry: "./src/game/main.ts",
