@@ -3,7 +3,7 @@ import { Enemy } from "../gameObject/enemy";
 
 export class GameScene extends Phaser.Scene {
     private player : Player;
-    private enemies : Array<Enemy>
+    private enemies : Array<Enemy>;
     constructor(){
         super({
             key:"GameScene"
@@ -14,12 +14,13 @@ export class GameScene extends Phaser.Scene {
         
     }
     create():void{
-        //this.physics.world.setBounds(0,0, 640, 480);
-        //let img =this.add.sprite(20, 20, "tempobj", 0);
-        //this.physics.world.enable(this);
-        //console.log(this.physics);
-        //this.physics.world.enable(this.bodyPlayer);
-        //this.bodyPlayer = this.physics.add.existing(bodyPlayer);
+        //preparetilemap
+        //let map = this.make.tilemap({key:'tilemapjson'});
+        let datajson = this.cache.json.get('data');
+        console.log(datajson);
+        //let tiles = map.addTilesetImage('mytiles', 'tilemap');
+        //let layer1= map.createDynamicLayer('bg', tiles, 0, 0);
+
         this.player = new Player({scene:this, x:80, y:80, key:"all", frame:"survivor1_gun"});
         this.addNewEnemy(1);
     }
