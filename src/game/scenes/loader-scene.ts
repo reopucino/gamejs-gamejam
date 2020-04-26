@@ -28,11 +28,12 @@ export class LoaderScene extends Phaser.Scene {
             this.load.image(_string, 'graphics/game/image-stock-4.png');
         }
         this.load.image("myimg","graphics/phaser.png");
-        this.load.image('tilemap', 'graphics/mappack_tilesheet.png');
+        this.load.image('tm', 'graphics/game/mappack_tilesheet.png');
         this.load.atlas("all", "graphics/game/all.png", "graphics/game/all.json");
 
-        this.load.tilemapTiledJSON('tilemapjson', 'maps/part1.json');
-        this.load.json('mapjson', 'maps/part1.json');
+        this.load.tilemapTiledJSON('tm_ogmo_json', 'maps/part1.json');
+        this.load.tilemapTiledJSON('tm_tiled_json', 'maps/map.json');
+        this.load.tilemapTiledJSON('tm_untilted_json', 'maps/untitled.json');
     }
     prepareLoadingAssets(){
         this.fnPrepareProgressbar();

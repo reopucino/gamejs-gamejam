@@ -15,12 +15,24 @@ export class GameScene extends Phaser.Scene {
     }
     create():void{
         //preparetilemap
-        //let map = this.make.tilemap({key:'tilemapjson'});
-        let datajson = this.cache.json.get('data');
-        console.log(datajson);
-        //let tiles = map.addTilesetImage('mytiles', 'tilemap');
-        //let layer1= map.createDynamicLayer('bg', tiles, 0, 0);
-
+        //load using ogmo editor and failed.. will check later
+        /*
+        //let map = this.make.tilemap({key:'tm_ogmo_json'});
+        let dmap = [[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,4]];
+        let mapjson = this.cache.json.get('mapjson');
+        let layermap0 = mapjson.layers;
+        let getdata0Only = mapjson.layers[0].data;
+        console.log(getdata0Only);
+        let map =  this.make.tilemap({width:mapjson.width, height:mapjson.height, data:dmap})
+        console.log(mapjson);
+        //let map = this.make.til
+        let tiles = map.addTilesetImage('tilemap');
+        let layer1= map.createDynamicLayer(0, tiles,0,0);
+        */
+        let map = this.make.tilemap({key:'tm_untilted_json'});
+        let tiles = map.addTilesetImage('mappack_tilesheet', 'tm');
+        //this.add.image(0,0, 'tm');
+        let layer1= map.createStaticLayer('bg', tiles,0,0);
         this.player = new Player({scene:this, x:80, y:80, key:"all", frame:"survivor1_gun"});
         this.addNewEnemy(1);
     }
